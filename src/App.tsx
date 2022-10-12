@@ -1,4 +1,4 @@
-import CardsContainer from './components/P1/CardsContainer';
+import CardsContainer from './components/ExpandableCarousel/CardsContainer';
 
 function App() {
   return (

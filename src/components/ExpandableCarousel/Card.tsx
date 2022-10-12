@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { CardProps } from './CardsContainer';
-type Props = { cardContent: CardProps; dispatch: Function };
+import { CardContent } from './expandableCarousel.types';
+type Props = { cardContent: CardContent; dispatch: Function };
 
 const MyCard = styled.div<{ isExpanded: boolean; img: string }>`
   height: 70%;

@@ -1,20 +1,10 @@
 import { useReducer } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import { myCards } from './cardConstants';
+import { myCards } from './expandableCarousel.constants';
+import { CardAction, CardContent } from './expandableCarousel.types';
 type Props = {};
 
-export type CardProps = {
-  id: number;
-  name: string;
-  img: string;
-  expanded: boolean;
-};
-
-type CardAction = {
-  type: 'EXPAND';
-  payload: number;
-};
 const CardContainer = styled.div`
   display: flex;
   align-items: center;
@@ -29,7 +19,7 @@ const CardContainer = styled.div`
   }
 `;
 
-const cardsReducer = (state: CardProps[], action: CardAction) => {
+const cardsReducer = (state: CardContent[], action: CardAction) => {
   switch (action.type) {
     case 'EXPAND':
       return state.map((card) => {
@@ -48,7 +38,7 @@ export default function CardsContainer({}: Props) {
   const [cardsContent, dispatch] = useReducer(cardsReducer, myCards);
   return (
     <CardContainer>
-      {cardsContent.map((c: CardProps) => (
+      {cardsContent.map((c: CardContent) => (
         <Card key={c.id} cardContent={c} dispatch={dispatch} />
       ))}
     </CardContainer>

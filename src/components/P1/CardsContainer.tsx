@@ -22,6 +22,11 @@ const CardContainer = styled.div`
   color: black;
   height: 100vh;
   margin: 0 50px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin: 50px 0;
+    height: calc(100vh - 100px);
+  }
 `;
 
 const cardsReducer = (state: CardProps[], action: CardAction) => {
@@ -41,7 +46,6 @@ const cardsReducer = (state: CardProps[], action: CardAction) => {
 
 export default function CardsContainer({}: Props) {
   const [cardsContent, dispatch] = useReducer(cardsReducer, myCards);
-  console.log(cardsContent);
   return (
     <CardContainer>
       {cardsContent.map((c: CardProps) => (

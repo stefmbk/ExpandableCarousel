@@ -9,3 +9,8 @@ React with styled-components and TypeScript.
 npm install
 npm run dev
 ```
+
+##  Running tests
+```
+npm run test
+```
